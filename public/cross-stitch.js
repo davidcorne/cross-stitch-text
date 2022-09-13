@@ -1,6 +1,6 @@
-const CrossStitch = {}
+const CrossStitch = {
 
-class Grid {
+Grid: class {
     constructor(width, height, data) {
         this.width = width
         this.height = height
@@ -22,7 +22,7 @@ class Grid {
                 flatData.push(value)
             }
         }
-        const grid = new Grid(width, height, flatData)
+        const grid = new CrossStitch.Grid(width, height, flatData)
         return grid
     }
 
@@ -70,23 +70,24 @@ class Grid {
         }
         return stitches
     }
-}
+},
 
-class Letter {
+Letter: class {
     constructor(letter, grid) {
         this.letter = letter
         this.grid = grid
     }
 }
+}
 CrossStitch.letters = {
-    a: new Letter("a", Grid.from([
+    a: new CrossStitch.Letter("a", CrossStitch.Grid.from([
         [0, 1, 1, 0],
         [0, 0, 0, 1],
         [0, 1, 1, 1],
         [1, 0, 0, 1],
         [0, 1, 1, 1]
     ])),
-    b: new Letter("b", Grid.from([
+    b: new CrossStitch.Letter("b", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -96,14 +97,14 @@ CrossStitch.letters = {
         [1, 0, 0, 1],
         [1, 1, 1, 1],
     ])),
-    c: new Letter("c", Grid.from([
+    c: new CrossStitch.Letter("c", CrossStitch.Grid.from([
         [0, 1, 1],
         [1, 0, 0],
         [1, 0, 0],
         [1, 0, 0],
         [0, 1, 1],
     ])),
-    d: new Letter("d", Grid.from([
+    d: new CrossStitch.Letter("d", CrossStitch.Grid.from([
         [0, 0, 0, 1],
         [0, 0, 0, 1],
         [0, 1, 1, 1],
@@ -112,14 +113,14 @@ CrossStitch.letters = {
         [1, 0, 0, 1],
         [0, 1, 1, 1],
     ])),
-    e: new Letter("e", Grid.from([
+    e: new CrossStitch.Letter("e", CrossStitch.Grid.from([
         [0, 1, 1, 0],
         [1, 0, 0, 1],
         [1, 1, 1, 1],
         [1, 0, 0, 0],
         [0, 1, 1, 1]
     ])),
-    f: new Letter("f", Grid.from([
+    f: new CrossStitch.Letter("f", CrossStitch.Grid.from([
         [0, 1, 1],
         [1, 0, 0],
         [1, 0, 0],
@@ -129,7 +130,7 @@ CrossStitch.letters = {
         [1, 0, 0],
         [1, 0, 0],
     ])),
-    g: new Letter("g", Grid.from([
+    g: new CrossStitch.Letter("g", CrossStitch.Grid.from([
         [0, 1, 1, 1],
         [1, 0, 0, 1],
         [1, 0, 0, 1],
@@ -138,7 +139,7 @@ CrossStitch.letters = {
         [0, 0, 0, 1],
         [0, 1, 1, 0],
     ])),
-    h: new Letter("h", Grid.from([
+    h: new CrossStitch.Letter("h", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -148,7 +149,7 @@ CrossStitch.letters = {
         [1, 0, 0, 1],
         [1, 0, 0, 1],
     ])),
-    i: new Letter("i", Grid.from([
+    i: new CrossStitch.Letter("i", CrossStitch.Grid.from([
         [1],
         [0],
         [1],
@@ -157,7 +158,7 @@ CrossStitch.letters = {
         [1],
         [1],
     ])),
-    j: new Letter("j", Grid.from([
+    j: new CrossStitch.Letter("j", CrossStitch.Grid.from([
         [0, 1],
         [0, 0],
         [0, 1],
@@ -167,7 +168,7 @@ CrossStitch.letters = {
         [0, 1],
         [1, 0],
     ])),
-    k: new Letter("k", Grid.from([
+    k: new CrossStitch.Letter("k", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -177,7 +178,7 @@ CrossStitch.letters = {
         [1, 0, 1, 0],
         [1, 0, 0, 1],
     ])),
-    l: new Letter("l", Grid.from([
+    l: new CrossStitch.Letter("l", CrossStitch.Grid.from([
         [1],
         [1],
         [1],
@@ -186,28 +187,28 @@ CrossStitch.letters = {
         [1],
         [1],
     ])),
-    m: new Letter("m", Grid.from([
+    m: new CrossStitch.Letter("m", CrossStitch.Grid.from([
         [1, 1, 1, 0, 1, 1, 0],
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 1],
     ])),
-    n: new Letter("n", Grid.from([
+    n: new CrossStitch.Letter("n", CrossStitch.Grid.from([
         [1, 1, 1, 0,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
     ])),
-    o: new Letter("o", Grid.from([
+    o: new CrossStitch.Letter("o", CrossStitch.Grid.from([
         [0, 1, 1, 0,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [0, 1, 1, 0,],
     ])),
-    p: new Letter("p", Grid.from([
+    p: new CrossStitch.Letter("p", CrossStitch.Grid.from([
         [1, 1, 1, 0,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
@@ -216,7 +217,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0,],
         [1, 0, 0, 0,],
     ])),
-    q: new Letter("q", Grid.from([
+    q: new CrossStitch.Letter("q", CrossStitch.Grid.from([
         [0, 1, 1, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
@@ -225,21 +226,21 @@ CrossStitch.letters = {
         [0, 0, 0, 1,],
         [0, 0, 0, 1,],
     ])),
-    r: new Letter("r", Grid.from([
+    r: new CrossStitch.Letter("r", CrossStitch.Grid.from([
         [1, 0, 1],
         [1, 1, 0],
         [1, 0, 0],
         [1, 0, 0],
         [1, 0, 0],
     ])),
-    s: new Letter("s", Grid.from([
+    s: new CrossStitch.Letter("s", CrossStitch.Grid.from([
         [1, 1, 1],
         [1, 0, 0],
         [0, 1, 0],
         [0, 0, 1],
         [1, 1, 1],
     ])),
-    t: new Letter("t", Grid.from([
+    t: new CrossStitch.Letter("t", CrossStitch.Grid.from([
         [1, 0],
         [1, 0],
         [1, 1],
@@ -248,35 +249,35 @@ CrossStitch.letters = {
         [1, 0],
         [0, 1],
     ])),
-    u: new Letter("u", Grid.from([
+    u: new CrossStitch.Letter("u", CrossStitch.Grid.from([
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [1, 0, 0, 1,],
         [0, 1, 1, 1,],
     ])),
-    v: new Letter("v", Grid.from([
+    v: new CrossStitch.Letter("v", CrossStitch.Grid.from([
         [1, 0, 0, 0, 1],
         [0, 1, 0, 1, 0],
         [0, 1, 0, 1, 0],
         [0, 1, 0, 1, 0],
         [0, 0, 1, 0, 0],
     ])),
-    w: new Letter("w", Grid.from([
+    w: new CrossStitch.Letter("w", CrossStitch.Grid.from([
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 1, 0, 1, 0, 1],
         [0, 1, 1, 0, 1, 1, 0],
         [0, 1, 0, 0, 0, 1, 0],
     ])),
-    x: new Letter("x", Grid.from([
+    x: new CrossStitch.Letter("x", CrossStitch.Grid.from([
         [1, 0, 1],
         [0, 1, 0],
         [0, 1, 0],
         [0, 1, 0],
         [1, 0, 1],
     ])),
-    y: new Letter("y", Grid.from([
+    y: new CrossStitch.Letter("y", CrossStitch.Grid.from([
         [1, 0, 0, 0, 1],
         [0, 1, 0, 1, 0],
         [0, 1, 0, 1, 0],
@@ -285,14 +286,14 @@ CrossStitch.letters = {
         [0, 0, 1, 0, 0],
         [0, 1, 0, 0, 0],
     ])),
-    z: new Letter("z", Grid.from([
+    z: new CrossStitch.Letter("z", CrossStitch.Grid.from([
         [1, 1, 1],
         [0, 0, 1],
         [0, 1, 0],
         [1, 0, 0],
         [1, 1, 1],
     ])),
-    A: new Letter("A", Grid.from([
+    A: new CrossStitch.Letter("A", CrossStitch.Grid.from([
         [0, 0, 1, 1, 0, 0],
         [0, 0, 1, 1, 0, 0],
         [0, 1, 0, 0, 1, 0],
@@ -301,7 +302,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
     ])),
-    B: new Letter("B", Grid.from([
+    B: new CrossStitch.Letter("B", CrossStitch.Grid.from([
         [1, 1, 1, 0, 0],
         [1, 0, 0, 1, 0],
         [1, 0, 0, 1, 0],
@@ -310,7 +311,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 1],
         [1, 1, 1, 1, 0],
     ])),
-    C: new Letter("C", Grid.from([
+    C: new CrossStitch.Letter("C", CrossStitch.Grid.from([
         [0, 0, 1, 1, 1, 0],
         [0, 1, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0],
@@ -319,7 +320,7 @@ CrossStitch.letters = {
         [0, 1, 0, 0, 0, 1],
         [0, 0, 1, 1, 1, 0],
     ])),
-    D: new Letter("D", Grid.from([
+    D: new CrossStitch.Letter("D", CrossStitch.Grid.from([
         [1, 1, 1, 1, 0, 0],
         [1, 0, 0, 0, 1, 0],
         [1, 0, 0, 0, 0, 1],
@@ -328,7 +329,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 1, 0],
         [1, 1, 1, 1, 0, 0]
     ])),
-    E: new Letter("E", Grid.from([
+    E: new CrossStitch.Letter("E", CrossStitch.Grid.from([
         [1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
@@ -337,7 +338,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0],
         [1, 1, 1, 1, 1],
     ])),
-    F: new Letter("F", Grid.from([
+    F: new CrossStitch.Letter("F", CrossStitch.Grid.from([
         [1, 1, 1, 1, 1],
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
@@ -346,7 +347,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
     ])),
-    G: new Letter("G", Grid.from([
+    G: new CrossStitch.Letter("G", CrossStitch.Grid.from([
         [0, 0, 1, 1, 1, 0],
         [0, 1, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 0],
@@ -355,7 +356,7 @@ CrossStitch.letters = {
         [0, 1, 0, 0, 0, 1],
         [0, 0, 1, 1, 1, 1],
     ])),
-    H: new Letter("H", Grid.from([
+    H: new CrossStitch.Letter("H", CrossStitch.Grid.from([
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
@@ -364,7 +365,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
     ])),
-    I: new Letter("I", Grid.from([
+    I: new CrossStitch.Letter("I", CrossStitch.Grid.from([
         [1, 1, 1],
         [0, 1, 0],
         [0, 1, 0],
@@ -373,7 +374,7 @@ CrossStitch.letters = {
         [0, 1, 0],
         [1, 1, 1],
     ])),
-    J: new Letter("J", Grid.from([
+    J: new CrossStitch.Letter("J", CrossStitch.Grid.from([
         [0, 0, 1, 1],
         [0, 0, 0, 1],
         [0, 0, 0, 1],
@@ -382,7 +383,7 @@ CrossStitch.letters = {
         [0, 0, 0, 1],
         [1, 1, 0, 0],
     ])),
-    K: new Letter("K", Grid.from([
+    K: new CrossStitch.Letter("K", CrossStitch.Grid.from([
         [1, 0, 0, 0, 1],
         [1, 0, 0, 1, 0],
         [1, 0, 1, 0, 0],
@@ -391,7 +392,7 @@ CrossStitch.letters = {
         [1, 0, 0, 1, 0],
         [1, 0, 0, 0, 1],
     ])),
-    L: new Letter("L", Grid.from([
+    L: new CrossStitch.Letter("L", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -400,7 +401,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0],
         [1, 1, 1, 1],
     ])),
-    M: new Letter("M", Grid.from([
+    M: new CrossStitch.Letter("M", CrossStitch.Grid.from([
         [1, 1, 0, 0, 0, 1, 1],
         [1, 1, 0, 0, 0, 1, 1],
         [1, 0, 1, 0, 1, 0, 1],
@@ -409,7 +410,7 @@ CrossStitch.letters = {
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 0, 0, 0, 1],
     ])),
-    N: new Letter("N", Grid.from([
+    N: new CrossStitch.Letter("N", CrossStitch.Grid.from([
         [1, 0, 0, 0, 0, 1],
         [1, 1, 0, 0, 0, 1],
         [1, 0, 1, 0, 0, 1],
@@ -418,7 +419,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
     ])),
-    O: new Letter("O", Grid.from([
+    O: new CrossStitch.Letter("O", CrossStitch.Grid.from([
         [0, 0, 1, 1, 1, 0, 0],
         [0, 1, 0, 0, 0, 1, 0],
         [1, 0, 0, 0, 0, 0, 1],
@@ -427,7 +428,7 @@ CrossStitch.letters = {
         [0, 1, 0, 0, 0, 1, 0],
         [0, 0, 1, 1, 1, 0, 0],
     ])),
-    P: new Letter("P", Grid.from([
+    P: new CrossStitch.Letter("P", CrossStitch.Grid.from([
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -436,7 +437,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
     ])),
-    Q: new Letter("Q", Grid.from([
+    Q: new CrossStitch.Letter("Q", CrossStitch.Grid.from([
         [0, 0, 1, 1, 1, 0, 0],
         [0, 1, 0, 0, 0, 1, 0],
         [1, 0, 0, 0, 0, 0, 1],
@@ -447,7 +448,7 @@ CrossStitch.letters = {
         [0, 0, 0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0, 1, 1],
     ])),
-    R: new Letter("R", Grid.from([
+    R: new CrossStitch.Letter("R", CrossStitch.Grid.from([
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
         [1, 0, 0, 0, 1],
@@ -456,7 +457,7 @@ CrossStitch.letters = {
         [1, 0, 0, 1, 0],
         [1, 0, 0, 0, 1],
     ])),
-    S: new Letter("S", Grid.from([
+    S: new CrossStitch.Letter("S", CrossStitch.Grid.from([
         [0, 1, 1, 1, 1],
         [1, 0, 0, 0, 0],
         [1, 0, 0, 0, 0],
@@ -465,7 +466,7 @@ CrossStitch.letters = {
         [0, 0, 0, 0, 1],
         [1, 1, 1, 1, 0],
     ])),
-    T: new Letter("T", Grid.from([
+    T: new CrossStitch.Letter("T", CrossStitch.Grid.from([
         [1, 1, 1, 1, 1],
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
@@ -474,7 +475,7 @@ CrossStitch.letters = {
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
     ])),
-    U: new Letter("U", Grid.from([
+    U: new CrossStitch.Letter("U", CrossStitch.Grid.from([
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
@@ -483,7 +484,7 @@ CrossStitch.letters = {
         [1, 0, 0, 0, 0, 1],
         [0, 1, 1, 1, 1, 0],
     ])),
-    V: new Letter("V", Grid.from([
+    V: new CrossStitch.Letter("V", CrossStitch.Grid.from([
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
         [1, 0, 0, 0, 0, 1],
@@ -492,7 +493,7 @@ CrossStitch.letters = {
         [0, 0, 1, 1, 0, 0],
         [0, 0, 1, 1, 0, 0],
     ])),
-    W: new Letter("W", Grid.from([
+    W: new CrossStitch.Letter("W", CrossStitch.Grid.from([
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 0, 1, 0, 0, 1],
         [1, 0, 1, 0, 1, 0, 1],
@@ -501,7 +502,7 @@ CrossStitch.letters = {
         [0, 1, 0, 0, 0, 1, 0],
         [0, 1, 0, 0, 0, 1, 0],
     ])),
-    X: new Letter("X", Grid.from([
+    X: new CrossStitch.Letter("X", CrossStitch.Grid.from([
         [1, 0, 0, 1],
         [1, 0, 0, 1],
         [0, 1, 1, 0],
@@ -510,7 +511,7 @@ CrossStitch.letters = {
         [1, 0, 0, 1],
         [1, 0, 0, 1],
     ])),
-    Y: new Letter("Y", Grid.from([
+    Y: new CrossStitch.Letter("Y", CrossStitch.Grid.from([
         [1, 0, 0, 0, 1],
         [0, 1, 0, 1, 0],
         [0, 1, 0, 1, 0],
@@ -519,7 +520,7 @@ CrossStitch.letters = {
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
     ])),
-    Z: new Letter("Z", Grid.from([
+    Z: new CrossStitch.Letter("Z", CrossStitch.Grid.from([
         [1, 1, 1, 1],
         [0, 0, 0, 1],
         [0, 0, 1, 0],
@@ -528,29 +529,29 @@ CrossStitch.letters = {
         [1, 0, 0, 0],
         [1, 1, 1, 1],
     ])),
-    " ": new Letter(" ", Grid.from([
+    " ": new CrossStitch.Letter(" ", CrossStitch.Grid.from([
         [0],
         [0],
         [0],
         [0],
         [0]
     ])),
-    ".": new Letter(".", Grid.from([
+    ".": new CrossStitch.Letter(".", CrossStitch.Grid.from([
         [1],
         [1],
     ])),
-    ",": new Letter(",", Grid.from([
+    ",": new CrossStitch.Letter(",", CrossStitch.Grid.from([
         [0, 1],
         [0, 1],
         [1, 0],
     ])),
-    "-": new Letter("-", Grid.from([
+    "-": new CrossStitch.Letter("-", CrossStitch.Grid.from([
         [1, 1],
         [0, 0],
         [0, 0],
         [0, 0],
     ])),
-    "!": new Letter("!", Grid.from([
+    "!": new CrossStitch.Letter("!", CrossStitch.Grid.from([
         [1],
         [1],
         [1],
@@ -559,7 +560,7 @@ CrossStitch.letters = {
         [0],
         [1],
     ])),
-    "?": new Letter("?", Grid.from([
+    "?": new CrossStitch.Letter("?", CrossStitch.Grid.from([
         [1, 1, 1, 0],
         [0, 0, 0, 1],
         [0, 0, 0, 1],
@@ -568,7 +569,7 @@ CrossStitch.letters = {
         [0, 0, 0, 0],
         [0, 1, 0, 0],
     ])),
-    "'": new Letter("'", Grid.from([
+    "'": new CrossStitch.Letter("'", CrossStitch.Grid.from([
         [1],
         [1],
         [0],
@@ -579,21 +580,9 @@ CrossStitch.letters = {
     ])),
 }
   
-function createArray(length) {
-    var arr = new Array(length || 0),
-        i = length;
-
-    if (arguments.length > 1) {
-        var args = Array.prototype.slice.call(arguments, 1);
-        while(i--) arr[length-1 - i] = createArray.apply(this, args);
-    }
-
-    return arr;
-}
-
 CrossStitch.gridArrayToGrid = function(gridArray) {
     if (gridArray.length === 0) {
-        return new Grid(0, 0, [])
+        return new CrossStitch.Grid(0, 0, [])
     }
     // one column between each letter
     let width = gridArray.length - 1
@@ -605,7 +594,7 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
     // 2 blank lines, top and bottom
     height += 2
     const data = new Array(width * height).fill(0)
-    const grid = new Grid(width, height, data)
+    const grid = new CrossStitch.Grid(width, height, data)
     let startX = 0
     for (const subGrid of gridArray) {
         const startY = (height - subGrid.height) - 1
