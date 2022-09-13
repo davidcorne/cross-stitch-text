@@ -307,7 +307,49 @@ CrossStitch.letters = {
         [0],
         [0],
         [0]
-    ]))
+    ])),
+    ".": new Letter(".", Grid.from([
+        [1],
+        [1],
+    ])),
+    ",": new Letter(",", Grid.from([
+        [0, 1],
+        [0, 1],
+        [1, 0],
+    ])),
+    "-": new Letter("-", Grid.from([
+        [1, 1],
+        [0, 0],
+        [0, 0],
+        [0, 0],
+    ])),
+    "!": new Letter("!", Grid.from([
+        [1],
+        [1],
+        [1],
+        [1],
+        [1],
+        [0],
+        [1],
+    ])),
+    "?": new Letter("?", Grid.from([
+        [1, 1, 1, 0],
+        [0, 0, 0, 1],
+        [0, 0, 0, 1],
+        [0, 0, 1, 0],
+        [0, 1, 0, 0],
+        [0, 0, 0, 0],
+        [0, 1, 0, 0],
+    ])),
+    "'": new Letter("'", Grid.from([
+        [1],
+        [1],
+        [0],
+        [0],
+        [0],
+        [0],
+        [0],
+    ])),
 }
   
 function createArray(length) {
@@ -359,17 +401,6 @@ CrossStitch.calculateGrid = function(text) {
     }
     const grid = CrossStitch.gridArrayToGrid(gridArray)
     return grid
-    // return new Grid(25, 9, [
-    //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    //     [1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0],
-    //     [1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-    //     [1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
-    //     [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0],
-    //     [1, 0, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0],
-    //     [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0],
-    //     [1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
-    //     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    // ])
 }
 
 CrossStitch.canvasSize = function(grid) {
@@ -414,22 +445,7 @@ CrossStitch.drawGrid = function(canvas, grid) {
 CrossStitch.onTextInput = function() {
     const textInput = document.getElementById("text-input")
     const text = textInput.value
-    // const text = "aDDaDaafrs "
-    //const text = "aD"
     const canvas1 = document.getElementById("text-output-1")
     const grid = CrossStitch.calculateGrid(text)
     CrossStitch.drawGrid(canvas1, grid)
-    // const canvas2 = document.getElementById("text-output-2")
-    // const grid2 = new Grid(6, 9, [
-    //         [0, 0, 0, 0, 0, 0],
-    //         [1, 1, 1, 1, 0, 0],
-    //         [1, 0, 0, 0, 1, 0],
-    //         [1, 0, 0, 0, 0, 1],
-    //         [1, 0, 0, 0, 0, 1],
-    //         [1, 0, 0, 0, 0, 1],
-    //         [1, 0, 0, 0, 1, 0],
-    //         [1, 1, 1, 1, 0, 0],
-    //         [0, 0, 0, 0, 0, 0]
-    // ])
-    // CrossStitch.drawGrid(canvas2, grid2)
   }
