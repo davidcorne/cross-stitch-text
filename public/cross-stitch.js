@@ -633,6 +633,18 @@ CrossStitch.drawGrid = function(canvas, grid) {
     canvas.width = totalWidth
     canvas.height = totalHeight
     const context = canvas.getContext("2d")
+    // Draw the stitches
+    context.fillStyle = "grey"
+    const stiches = grid.stitches()
+    for (const stitch of stiches) {
+        context.rect(
+            stitch[0] * pixelSize,
+            stitch[1] * pixelSize,
+            pixelSize - 1,
+            pixelSize - 1
+        )
+        context.fill()
+    }
     // draw the vertical lines
     for (let i = 1; i < grid.width; ++i) {
         context.moveTo(i * pixelSize, 0)
@@ -644,17 +656,6 @@ CrossStitch.drawGrid = function(canvas, grid) {
         context.moveTo(0, i * pixelSize)
         context.lineTo(totalWidth, i * pixelSize)
         context.stroke()
-    }
-    context.fillStyle = "grey"
-    const stiches = grid.stitches()
-    for (const stitch of stiches) {
-        context.rect(
-            stitch[0] * pixelSize,
-            stitch[1] * pixelSize,
-            pixelSize - 1,
-            pixelSize - 1
-        )
-        context.fill()
     }
 }
 
