@@ -5,6 +5,7 @@ Grid: class {
         this.width = width
         this.height = height
         this.data = data
+        this.offset = 0
         if (this.data.length !== this.height * this.width) {
             throw `Data has the wrong length ${this.height * this.width} != ${this.data.length}`
         }
@@ -73,9 +74,10 @@ Grid: class {
 },
 
 Letter: class {
-    constructor(letter, grid) {
+    constructor(letter, grid, offset = 0) {
         this.letter = letter
         this.grid = grid
+        this.grid.offset = offset
     }
 }
 }
@@ -138,7 +140,7 @@ CrossStitch.letters = {
         [0, 1, 1, 1],
         [0, 0, 0, 1],
         [0, 1, 1, 0],
-    ])),
+    ]), 2),
     h: new CrossStitch.Letter("h", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -167,7 +169,7 @@ CrossStitch.letters = {
         [0, 1],
         [0, 1],
         [1, 0],
-    ])),
+    ]), 1),
     k: new CrossStitch.Letter("k", CrossStitch.Grid.from([
         [1, 0, 0, 0],
         [1, 0, 0, 0],
@@ -216,7 +218,7 @@ CrossStitch.letters = {
         [1, 1, 1, 0,],
         [1, 0, 0, 0,],
         [1, 0, 0, 0,],
-    ])),
+    ]), 2),
     q: new CrossStitch.Letter("q", CrossStitch.Grid.from([
         [0, 1, 1, 1,],
         [1, 0, 0, 1,],
@@ -225,7 +227,7 @@ CrossStitch.letters = {
         [0, 1, 1, 1,],
         [0, 0, 0, 1,],
         [0, 0, 0, 1,],
-    ])),
+    ]), 2),
     r: new CrossStitch.Letter("r", CrossStitch.Grid.from([
         [1, 0, 1],
         [1, 1, 0],
@@ -285,7 +287,7 @@ CrossStitch.letters = {
         [0, 0, 1, 0, 0],
         [0, 0, 1, 0, 0],
         [0, 1, 0, 0, 0],
-    ])),
+    ]), 2),
     z: new CrossStitch.Letter("z", CrossStitch.Grid.from([
         [1, 1, 1],
         [0, 0, 1],
@@ -447,7 +449,7 @@ CrossStitch.letters = {
         [0, 0, 1, 1, 1, 0, 0],
         [0, 0, 0, 0, 1, 0, 0],
         [0, 0, 0, 0, 0, 1, 1],
-    ])),
+    ]), 2),
     R: new CrossStitch.Letter("R", CrossStitch.Grid.from([
         [1, 1, 1, 1, 0],
         [1, 0, 0, 0, 1],
@@ -544,7 +546,7 @@ CrossStitch.letters = {
         [0, 1],
         [0, 1],
         [1, 0],
-    ])),
+    ]), 1),
     "-": new CrossStitch.Letter("-", CrossStitch.Grid.from([
         [1, 1],
         [0, 0],
@@ -589,7 +591,7 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
     let height = 0
     for (const grid of gridArray) {
         width += grid.width
-        height = Math.max(height, grid.height)
+        height = Math.max(height, grid.height + grid.offset)
     }
     // 2 blank lines, top and bottom
     height += 2
@@ -597,7 +599,7 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
     const grid = new CrossStitch.Grid(width, height, data)
     let startX = 0
     for (const subGrid of gridArray) {
-        const startY = (height - subGrid.height) - 1
+        const startY = (height + grid.offset - subGrid.height) - 1
         const stiches = subGrid.stitches()
         for (const stitch of stiches) {
             grid.set(startX + stitch[0], startY + stitch[1], 1)
