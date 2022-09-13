@@ -78,31 +78,237 @@ class Letter {
         this.grid = grid
     }
 }
-// CrossStitch.letters = {
-//     a: new Letter("a", Grid.from([
-//         [0, 1, 1, 0],
-//         [0, 0, 0, 1],
-//         [0, 1, 1, 1],
-//         [1, 0, 0, 1],
-//         [0, 1, 1, 1]
-//     ])),
-//     D: new Letter("D", Grid.from([
-//         [1, 1, 1, 1, 0, 0],
-//         [1, 0, 0, 0, 1, 0],
-//         [1, 0, 0, 0, 0, 1],
-//         [1, 0, 0, 0, 0, 1],
-//         [1, 0, 0, 0, 0, 1],
-//         [1, 0, 0, 0, 1, 0],
-//         [1, 1, 1, 1, 0, 0]
-//     ])),
-//     " ": new Letter(" ", Grid.from([
-//         [0],
-//         [0],
-//         [0],
-//         [0],
-//         [0]
-//     ]))
-// }
+CrossStitch.letters = {
+    a: new Letter("a", Grid.from([
+        [0, 1, 1, 0],
+        [0, 0, 0, 1],
+        [0, 1, 1, 1],
+        [1, 0, 0, 1],
+        [0, 1, 1, 1]
+    ])),
+    b: new Letter("b", Grid.from([
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 1, 1, 0],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 1, 1, 1],
+    ])),
+    c: new Letter("c", Grid.from([
+        [0, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [0, 1, 1],
+    ])),
+    d: new Letter("d", Grid.from([
+        [0, 0, 0, 1],
+        [0, 0, 0, 1],
+        [0, 1, 1, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [0, 1, 1, 1],
+    ])),
+    e: new Letter("e", Grid.from([
+        [0, 1, 1, 0],
+        [1, 0, 0, 1],
+        [1, 1, 1, 1],
+        [1, 0, 0, 0],
+        [0, 1, 1, 1]
+    ])),
+    f: new Letter("f", Grid.from([
+        [0, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 1, 1],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+    ])),
+    g: new Letter("g", Grid.from([
+        [0, 1, 1, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [0, 1, 1, 1],
+        [0, 0, 0, 1],
+        [0, 1, 1, 0],
+    ])),
+    h: new Letter("h", Grid.from([
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 1, 1, 0],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+        [1, 0, 0, 1],
+    ])),
+    i: new Letter("i", Grid.from([
+        [1],
+        [0],
+        [1],
+        [1],
+        [1],
+        [1],
+        [1],
+    ])),
+    j: new Letter("j", Grid.from([
+        [0, 1],
+        [0, 0],
+        [0, 1],
+        [0, 1],
+        [0, 1],
+        [0, 1],
+        [0, 1],
+        [1, 0],
+    ])),
+    k: new Letter("k", Grid.from([
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 0, 0, 0],
+        [1, 0, 0, 1],
+        [1, 0, 1, 0],
+        [1, 1, 0, 0],
+        [1, 0, 1, 0],
+        [1, 0, 0, 1],
+    ])),
+    l: new Letter("l", Grid.from([
+        [1],
+        [1],
+        [1],
+        [1],
+        [1],
+        [1],
+        [1],
+    ])),
+    m: new Letter("m", Grid.from([
+        [1, 1, 1, 0, 1, 1, 0],
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1],
+    ])),
+    n: new Letter("n", Grid.from([
+        [1, 1, 1, 0,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+    ])),
+    o: new Letter("o", Grid.from([
+        [0, 1, 1, 0,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [0, 1, 1, 0,],
+    ])),
+    p: new Letter("p", Grid.from([
+        [1, 1, 1, 0,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 1, 1, 0,],
+        [1, 0, 0, 0,],
+        [1, 0, 0, 0,],
+    ])),
+    q: new Letter("q", Grid.from([
+        [0, 1, 1, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [0, 1, 1, 1,],
+        [0, 0, 0, 1,],
+        [0, 0, 0, 1,],
+    ])),
+    r: new Letter("r", Grid.from([
+        [1, 0, 1],
+        [1, 1, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+        [1, 0, 0],
+    ])),
+    s: new Letter("s", Grid.from([
+        [1, 1, 1],
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1],
+        [1, 1, 1],
+    ])),
+    t: new Letter("t", Grid.from([
+        [1, 0],
+        [1, 0],
+        [1, 1],
+        [1, 0],
+        [1, 0],
+        [1, 0],
+        [0, 1],
+    ])),
+    u: new Letter("u", Grid.from([
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [1, 0, 0, 1,],
+        [0, 1, 1, 1,],
+    ])),
+    v: new Letter("v", Grid.from([
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+    ])),
+    w: new Letter("w", Grid.from([
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 1],
+        [1, 0, 1, 0, 1, 0, 1],
+        [0, 1, 1, 0, 1, 1, 0],
+        [0, 1, 0, 0, 0, 1, 0],
+    ])),
+    x: new Letter("x", Grid.from([
+        [1, 0, 1],
+        [0, 1, 0],
+        [0, 1, 0],
+        [0, 1, 0],
+        [1, 0, 1],
+    ])),
+    y: new Letter("y", Grid.from([
+        [1, 0, 0, 0, 1],
+        [0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 1, 0, 1, 0],
+        [0, 0, 1, 0, 0],
+        [0, 0, 1, 0, 0],
+        [0, 1, 0, 0, 0],
+    ])),
+    z: new Letter("z", Grid.from([
+        [1, 1, 1],
+        [0, 0, 1],
+        [0, 1, 0],
+        [1, 0, 0],
+        [1, 1, 1],
+    ])),
+    D: new Letter("D", Grid.from([
+        [1, 1, 1, 1, 0, 0],
+        [1, 0, 0, 0, 1, 0],
+        [1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 0, 1],
+        [1, 0, 0, 0, 1, 0],
+        [1, 1, 1, 1, 0, 0]
+    ])),
+    " ": new Letter(" ", Grid.from([
+        [0],
+        [0],
+        [0],
+        [0],
+        [0]
+    ]))
+}
   
 function createArray(length) {
     var arr = new Array(length || 0),
@@ -129,14 +335,11 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
     }
     // 2 blank lines, top and bottom
     height += 2
-    //???????????????
     const data = new Array(width * height).fill(0)
-    console.log(data)
-    //???????????????
     const grid = new Grid(width, height, data)
     let startX = 0
     for (const subGrid of gridArray) {
-        const startY = 1 // will change
+        const startY = (height - subGrid.height) - 1
         const stiches = subGrid.stitches()
         for (const stitch of stiches) {
             grid.set(startX + stitch[0], startY + stitch[1], 1)
@@ -210,9 +413,9 @@ CrossStitch.drawGrid = function(canvas, grid) {
 
 CrossStitch.onTextInput = function() {
     const textInput = document.getElementById("text-input")
-    // const text = textInput.value
+    const text = textInput.value
     // const text = "aDDaDaafrs "
-    const text = "a"
+    //const text = "aD"
     const canvas1 = document.getElementById("text-output-1")
     const grid = CrossStitch.calculateGrid(text)
     CrossStitch.drawGrid(canvas1, grid)
