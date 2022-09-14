@@ -582,7 +582,7 @@ CrossStitch.letters = {
     ])),
 }
   
-CrossStitch.gridArrayToGrid = function(gridArray) {
+CrossStitch.gridArrayToGridLine = function(gridArray) {
     if (gridArray.length === 0) {
         return new CrossStitch.Grid(0, 0, [])
     }
@@ -593,13 +593,11 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
         width += grid.width
         height = Math.max(height, grid.height + grid.offset)
     }
-    // 2 blank lines, top and bottom
-    height += 2
     const data = new Array(width * height).fill(0)
     const grid = new CrossStitch.Grid(width, height, data)
     let startX = 0
     for (const subGrid of gridArray) {
-        const startY = (height + grid.offset - subGrid.height) - 1
+        const startY = (height + grid.offset - subGrid.height)
         const stiches = subGrid.stitches()
         for (const stitch of stiches) {
             grid.set(startX + stitch[0], startY + stitch[1], 1)
@@ -609,21 +607,49 @@ CrossStitch.gridArrayToGrid = function(gridArray) {
     return grid
 }
 
-CrossStitch.calculateGrid = function(text) {
-    const textArray = Array.from(text)
-    const gridArray = []
-    for (const letter of textArray) {
-        if (letter in CrossStitch.letters) {
-            gridArray.push(CrossStitch.letters[letter].grid)
-        }
+CrossStitch.combineGridLines = function(gridLines) {
+    // one row between each line
+    let height = gridLines.length - 1
+    let width = 0
+    for (const grid of gridLines) {
+        height += grid.height
+        width = Math.max(width, grid.width)
     }
-    const grid = CrossStitch.gridArrayToGrid(gridArray)
+    // 2 blank lines, top and bottom
+    height += 2
+    const data = new Array(width * height).fill(0)
+    const grid = new CrossStitch.Grid(width, height, data)
+    let startY = 1
+    for (const subGrid of gridLines) {
+        const startX = 0
+        const stiches = subGrid.stitches()
+        for (const stitch of stiches) {
+            grid.set(startX + stitch[0], startY + stitch[1], 1)
+        }
+        startY += subGrid.height + 1
+    }
     return grid
 }
 
+CrossStitch.calculateGrid = function(text) {
+    const lines = text.split("\n")
+    const gridLines = []
+    for (const line of lines) {
+        const textArray = Array.from(line)
+        const gridArray = []
+        for (const letter of textArray) {
+            if (letter in CrossStitch.letters) {
+                gridArray.push(CrossStitch.letters[letter].grid)
+            }
+        }
+        gridLines.push(CrossStitch.gridArrayToGridLine(gridArray))
+    }
+    return CrossStitch.combineGridLines(gridLines)
+}
+
 CrossStitch.canvasSize = function(grid) {
-    // We want a width of around 1200, but a minimum pixel size of 5
-    const pixelSize = Math.max(5, 1200 / grid.width)
+    // We want a width/height of around 1200/800, but a minimum pixel size of 5
+    const pixelSize = Math.max(5, Math.min(1200 / grid.width, 800 / grid.height))
     const totalWidth = (pixelSize) * grid.width
     const totalHeight =  (pixelSize) * grid.height
     return {pixelSize, totalWidth, totalHeight}
